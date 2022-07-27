@@ -104,6 +104,7 @@ keys = [
     Key([mod, shift], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod, shift], "Return", lazy.spawn("xfce4-terminal"), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -127,7 +128,6 @@ keys = [
     # Key([mod, ctrl], 'Down', lazy.layout.integrate_down()),
     # Key([mod, ctrl], 'Up', lazy.layout.integrate_up()),
     # Key([mod, ctrl], 'Right', lazy.layout.integrate_right()),
-
     # # scale
     # Key([mod, ctrl, shift], 'Left', lazy.layout.grow_width(plasma_grow)),
     # Key([mod, ctrl, shift], 'Down', lazy.layout.grow_height(plasma_grow)),
@@ -143,12 +143,15 @@ keys = [
     # ]),
 
     # Custom
-    Key([mod], "t", lazy.spawn("ulauncher"), desc="Run ulauncher"),
     Key([mod], "p", lazy.spawn("dmenu_run -c -l 10"), desc="Run dmenu"), 
-    Key([mod], "n", lazy.spawn("= --"), desc="menu-calc"), 
+    Key([mod], "n", lazy.spawn("= --"), desc="menu-calc"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
+    Key([mod], "o", lazy.hide_show_bar("top"), desc="toggle top bar"),
+    Key([mod], "t", lazy.spawn("thunar"), desc="open file manager (thunar)"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
     Key([mod, shift], "s", lazy.spawn("flameshot gui"), desc="Screenshot (windows hotkey)"),
     Key([mod, ctrl, shift], 's', lazy.spawn("shutdown 0"), desc="Shutdown"),
+    Key([mod, ctrl, shift], 'a', lazy.spawn("systemctl suspend"), desc="Suspend to RAM"),
     Key([mod, ctrl, shift], 'r', lazy.spawn("reboot"), desc="Reboot"),
 #   Key([alt], 'Shift_L', lazy.widget["keyboardlayout"].next_keyboard(), desc="Change Layout"),
     KeyChord([mod], 'm', [
